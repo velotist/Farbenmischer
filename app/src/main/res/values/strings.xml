@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Farbenmischer</string>
+    <string name="id_btnResult"/>
+    <string name="id_btnAgain">Nochmal</string>
+</resources>
