@@ -9,68 +9,85 @@
 
     <Button
         android:id="@+id/btnRed_id"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_marginStart="76dp"
         android:layout_marginLeft="76dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="214dp"
-        android:layout_marginRight="214dp"
-        android:layout_marginBottom="41dp"
-        android:background="@android:color/holo_red_dark"
-        app:layout_constraintBottom_toTopOf="@+id/txtResult_id"
-        app:layout_constraintEnd_toStartOf="@+id/btnYellow_id"
+        android:layout_marginTop="62dp"
+        android:background="#ff0000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnYellow_id"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="215dp"
-        android:layout_marginRight="215dp"
-        android:layout_marginBottom="29dp"
-        android:background="#f9ec3a"
+        android:layout_width="100dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="64dp"
+        android:background="#ffff00"
         app:layout_constraintBottom_toTopOf="@+id/txtResult_id"
-        app:layout_constraintEnd_toStartOf="@+id/btnBlue_id"
-        app:layout_constraintStart_toEndOf="@+id/btnRed_id" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnBlue_id"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="62dp"
         android:layout_marginEnd="76dp"
         android:layout_marginRight="76dp"
-        android:layout_marginBottom="41dp"
-        android:background="@android:color/holo_blue_light"
-        app:layout_constraintBottom_toTopOf="@+id/txtResult_id"
+        android:background="#0000ff"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnYellow_id"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtResult_id"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginBottom="156dp"
-        android:background="@android:color/white"
+        android:layout_width="660dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="44dp"
+        android:background="#ffffff"
         android:clickable="false"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBlue_id" />
+        app:layout_constraintBottom_toTopOf="@+id/barrier2"
+        app:layout_constraintEnd_toEndOf="@+id/barrier"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="8dp" />
+        app:layout_constraintGuide_end="16dp" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        tools:layout_editor_absoluteX="731dp" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        tools:layout_editor_absoluteY="411dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="16dp" />
 
 </android.support.constraint.ConstraintLayout>
