@@ -64,5 +64,5 @@ Application style:
 
 Marcus Greiner – marcusGreiner@ITsmus.de
 
-[https://github.com/velotist/Calculator](https://github.com/dbader/)
+[https://github.com/velotist/Farbenmischer](https://github.com/dbader/)
 
