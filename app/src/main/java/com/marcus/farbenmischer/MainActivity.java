@@ -6,14 +6,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
-import static android.graphics.Color.GREEN;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int x=0;
-    private int y=0;
-    private int z=0;
+    private int x = 0, y = 0, z = 0;
+
+    Button btnRed;
+    Button btnYellow;
+    Button btnBlue;
+    TextView txtResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +25,13 @@ public class MainActivity extends AppCompatActivity {
         final MediaPlayer soundGreet = MediaPlayer.create(this,R.raw.leandergreet);
         soundGreet.start();
         try{
-            Thread.sleep(3000);
+            Thread.sleep(4000);
         }catch(InterruptedException ignored){}
 
-        Button btnRed = findViewById(R.id.btnRed_id);
-        Button btnYellow = findViewById(R.id.btnYellow_id);
-        Button btnBlue = findViewById(R.id.btnBlue_id);
+        btnRed = findViewById(R.id.btnRed_id);
+        btnYellow = findViewById(R.id.btnYellow_id);
+        btnBlue = findViewById(R.id.btnBlue_id);
+        txtResult = findViewById(R.id.txtResult_id);
 
         btnRed.setOnClickListener(redClickListener);
         btnYellow.setOnClickListener(yellowClickListener);
@@ -39,14 +42,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             String farbe = "Rot";
+            x = 1;
             playColor(farbe);
-            try{
-                Thread.sleep(3000);
-            }catch(InterruptedException ignored){}
-
-            x++;
-            if(x==2) x=1;
-            ergebnisFarbeMischen();
+            btnRed.setEnabled(false);
+            resultOfMixingColors();
         }
     };
 
@@ -55,13 +54,9 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             String farbe = "Gelb";
             playColor(farbe);
-            try{
-                Thread.sleep(3000);
-            }catch(InterruptedException ignored){}
-
-            y++;
-            if(y==2) y=1;
-            ergebnisFarbeMischen();
+            y = 1;
+            btnYellow.setEnabled(false);
+            resultOfMixingColors();
         }
     };
 
@@ -70,45 +65,34 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             String farbe = "Blau";
             playColor(farbe);
-            try{
-                Thread.sleep(3000);
-            }catch(InterruptedException ignored){}
-
-            z++;
-            if(z==2) z=1;
-            ergebnisFarbeMischen();
+            z = 1;
+            btnBlue.setEnabled(false);
+            resultOfMixingColors();
         }
     };
 
-    private void ergebnisFarbeMischen() {
+    private void resultOfMixingColors() {
     // x = Rot y = Gelb z = Blau
         // wenn Rot und Gelb gedrückt wurden
-        if(x==1 && y==1) {
+        if(x == 1 && y == 1) {
             // Gib die mp3 zur Farbe Orange aus und setze die Hintergrundfarbe des Ergebnisbuttons auf Orange
             String farbe = "Orange";
-            findViewById(R.id.btnResult_id).setBackgroundColor(Color.parseColor("#FF8C00"));
+            findViewById(R.id.txtResult_id).setBackgroundColor(Color.parseColor("#FF8C00"));
             playColor(farbe);
-            x=0;
-            y=0;
-            z=0;
         }
     // wenn Rot und Blau gedrückt wurden
-        if(x==1 && z==1) {
+        if(x == 1 && z == 1) {
             String farbe = "Lila";
-            findViewById(R.id.btnResult_id).setBackgroundColor(Color.parseColor("#8A2BE2"));
+            findViewById(R.id.txtResult_id).setBackgroundColor(Color.parseColor("#8A2BE2"));
             playColor(farbe);
-            x=0;
-            y=0;
-            z=0;
         }
     // wenn Gelb und Blau gedrückt wurden
-        if(y==1 && z==1) {
+        if(y == 1 && z == 1) {
             String farbe = "Gruen";
-            findViewById(R.id.btnResult_id).setBackgroundColor(GREEN);
+            findViewById(R.id.txtResult_id).setBackgroundColor(Color.parseColor("#00FF00"));
             playColor(farbe);
-            x=0;
-            y=0;
-            z=0;
+        } else {
+
         }
     }
 
@@ -117,27 +101,57 @@ public class MainActivity extends AppCompatActivity {
         switch(farbe) {
             case "Rot":
                 final MediaPlayer soundRot = MediaPlayer.create(this, R.raw.rot);
-                soundRot.start();
+                while(soundRot.isPlaying()) {
+                    soundRot.start();
+                }
+                soundRot.release();
                 break;
             case "Gelb":
                 final MediaPlayer soundGelb = MediaPlayer.create(this,R.raw.gelb);
-                soundGelb.start();
+                while(soundGelb.isPlaying()) {
+                    soundGelb.start();
+                }
+                soundGelb.release();
                 break;
             case "Blau":
                 final MediaPlayer soundBlau = MediaPlayer.create(this,R.raw.blau);
-                soundBlau.start();
+                while(soundBlau.isPlaying()) {
+                    soundBlau.start();
+                }
+                soundBlau.release();
                 break;
             case "Gruen":
                 final MediaPlayer soundGreen = MediaPlayer.create(this,R.raw.gruen);
-                soundGreen.start();
+                while(soundGreen.isPlaying()) {
+                    soundGreen.start();
+                }
+                soundGreen.release();
+                btnBlue.setEnabled(true);
+                z = 0;
+                btnYellow.setEnabled(true);
+                y = 0;
                 break;
             case "Orange":
                 final MediaPlayer soundOrange = MediaPlayer.create(this,R.raw.orange);
-                soundOrange.start();
+                while(soundOrange.isPlaying()) {
+                    soundOrange.start();
+                }
+                soundOrange.release();
+                btnRed.setEnabled(true);
+                x = 0;
+                btnYellow.setEnabled(true);
+                y = 0;
                 break;
             case "Lila":
                 final MediaPlayer soundLila = MediaPlayer.create(this,R.raw.lila);
-                soundLila.start();
+                while(soundLila.isPlaying()) {
+                    soundLila.start();
+                }
+                soundLila.release();
+                btnBlue.setEnabled(true);
+                z = 0;
+                btnRed.setEnabled(true);
+                x = 0;
                 break;
             default:
                 break;
