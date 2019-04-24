@@ -10,56 +10,49 @@
     <Button
         android:id="@+id/btnRed_id"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_marginStart="76dp"
         android:layout_marginLeft="76dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginRight="34dp"
-        android:background="@android:color/holo_red_dark"
-        app:layout_constraintEnd_toStartOf="@+id/btnYellow_id"
+        android:layout_marginTop="62dp"
+        android:background="#ff0000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnYellow_id"
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="70dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="32dp"
-        android:background="#f9ec3a"
-        app:layout_constraintStart_toEndOf="@+id/btnRed_id"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="67dp"
+        android:layout_marginBottom="64dp"
+        android:background="#ffff00"
+        app:layout_constraintBottom_toTopOf="@+id/txtResult_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnBlue_id"
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginRight="66dp"
-        android:background="@android:color/holo_blue_light"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toEndOf="@+id/btnYellow_id"
+        android:layout_height="50dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginRight="76dp"
+        android:background="#0000ff"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnResult_id"
-        android:layout_width="530dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+    <TextView
+        android:id="@+id/txtResult_id"
+        android:layout_width="660dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="44dp"
-        android:background="@android:color/white"
+        android:background="#ffffff"
+        android:clickable="false"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toTopOf="@+id/barrier2"
+        app:layout_constraintEnd_toEndOf="@+id/barrier"
         app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.constraint.Guideline
@@ -67,6 +60,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="8dp" />
+        app:layout_constraintGuide_end="16dp" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        tools:layout_editor_absoluteX="731dp" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        tools:layout_editor_absoluteY="411dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="16dp" />
 
 </android.support.constraint.ConstraintLayout>
